@@ -1,0 +1,14 @@
+# 환경변수 / 시크릿 (Supabase URL·키 등)
+.env
+.env.*
+!.env.example
+
+# macOS / Xcode
+.DS_Store
+xcuserdata/
+*.xcuserstate
+DerivedData/
+
+# Node (백엔드/엣지 함수용)
+node_modules/
+dist/
