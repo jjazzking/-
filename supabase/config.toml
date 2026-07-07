@@ -1,0 +1,7 @@
+# Supabase 프로젝트 설정.
+# project_id 는 `supabase link --project-ref <ref>` 실행 시 자동으로 채워진다.
+project_id = "REPLACE_WITH_PROJECT_REF"
+
+[functions.ingest]
+# 단축어는 Supabase JWT 대신 x-ingest-secret 헤더로 인증하므로 JWT 검증을 끈다.
+verify_jwt = false
