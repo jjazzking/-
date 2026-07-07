@@ -18,6 +18,19 @@ const cases: Array<{ label: string; sms: string; expect: Record<string, unknown>
     },
   },
   {
+    label: "신한 취소(가맹점에 괄호)",
+    sms: "신한카드(9051)취소 현*우 3,000원(일시불)07/07 09:42 (주)더스윙 누적3,076,181원",
+    expect: {
+      card: "shinhan_personal",
+      cardLast4: "9051",
+      originalAmount: 3000,
+      payType: "일시불",
+      occurredAt: "2026-07-07T09:42:00+09:00",
+      merchant: "(주)더스윙",
+      isCanceled: true,
+    },
+  },
+  {
     label: "하나 일시불(법인)",
     sms: "하나9986 승인 현*우 19,400원 일시불 07/06 18:05  우아한형제들 가능액2,980,600원",
     expect: {

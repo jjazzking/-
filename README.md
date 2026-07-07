@@ -34,9 +34,9 @@
 
 - [x] DB 스키마 (`supabase/migrations/0001_initial_schema.sql`)
 - [x] 기본 카테고리 시드 (`supabase/seed.sql`)
-- [x] 문자 파서 신한/하나 (`supabase/functions/_shared/parser.ts`) — 실샘플 2종 통과
-- [x] `/ingest` 엣지 함수 (`supabase/functions/ingest/index.ts`)
-- [ ] 취소/할부 문자 대응 — *샘플 대기 중*
+- [x] 문자 파서 신한/하나 (`supabase/functions/_shared/parser.ts`) — 실샘플 3종 통과(승인/취소)
+- [x] `/ingest` 엣지 함수 (`supabase/functions/ingest/index.ts`) — 취소 건은 amount 음수 처리
+- [ ] 할부 문자 대응 — *샘플 대기 중*
 - [ ] CSV 임포터
 - [ ] iOS 단축어 구성 가이드
 - [ ] SwiftUI 앱

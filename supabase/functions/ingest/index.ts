@@ -63,14 +63,19 @@ Deno.serve(async (req: Request) => {
     return json({ ok: false, reason: "unparsed", log_id: logRow.id }, 200);
   }
 
-  // 3) 거래 저장 (조정 없음: amount = original_amount)
+  // 3) 거래 저장
+  //   취소 건은 지출을 상쇄하도록 amount 를 음수로 저장 (합계가 자동으로 net 값이 됨).
+  //   original_amount 는 액면가(양수) 유지 + is_canceled 플래그로 목록 표시.
+  const signedAmount = parsed.isCanceled
+    ? -parsed.originalAmount
+    : parsed.originalAmount;
   const { data: tx, error: txErr } = await supabase
     .from("transactions")
     .insert({
       occurred_at: parsed.occurredAt,
       merchant: parsed.merchant,
       original_amount: parsed.originalAmount,
-      amount: parsed.originalAmount,
+      amount: signedAmount,
       type: "expense",
       card: parsed.card,
       adjustment: "none",
